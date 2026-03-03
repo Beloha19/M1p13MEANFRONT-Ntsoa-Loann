@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { API_URL} from '../config/api.config';  
 
 export interface AdminUser {
   id: string;
@@ -21,7 +22,7 @@ export class AuthAdminService {
   constructor(private http: HttpClient) {}
 
   login(email: string, mdp: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/connexion`, { email, mdp }).pipe(
+   return this.http.post(`${API_URL}/admin/connexion`, { email, mdp }).pipe(
       tap((response: any) => {
         if (response.token) {
           this.setToken(response.token);
