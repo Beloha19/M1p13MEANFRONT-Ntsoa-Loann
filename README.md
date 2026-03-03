@@ -1,6 +1,2 @@
 # testNtsoaLoann
-
-nasiako zavatrakely
-
-hoano tay
-
+MEAN FRONT
