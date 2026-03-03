@@ -328,6 +328,7 @@ export class AdminVisitesComponent implements OnInit, OnDestroy {
           this.showToast(successMsg);
         },
         error: (err) => {
+          console.error('ERREUR COMPLETE:', err.error);
           this.isSubmitting = false;
           this.showToast(err?.error?.message ?? 'Une erreur est survenue');
         }

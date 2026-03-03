@@ -12,6 +12,8 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
     '/ResponseDm/apercu-contrat',
     '/DemandeLocationCM/all-demande-client',
     '/DemandeLocationCM/admin',
+    '/Statistique',
+    '/notifications',
   ];
 
   const isAdminRoute = adminRoutes.some(route => req.url.includes(route));

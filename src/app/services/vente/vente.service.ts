@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import {API_URL} from '../../config/api.config';
 
 export interface VenteItem {
   produitId: string | { _id: string; nom: string; images: string[] };
@@ -34,23 +35,23 @@ export class VenteService {
   constructor(private http: HttpClient) {}
 
   getVentesAttente(): Observable<Vente[]> {
-    return this.http.get<Vente[]>(`${this.apiUrl}/attente`);
+    return this.http.get<Vente[]>(`${API_URL}/vente/attente`);
   }
 
   confirmerVente(id: string): Observable<Vente> {
-    return this.http.put<Vente>(`${this.apiUrl}/confirmer/${id}`, {});
+    return this.http.put<Vente>(`${API_URL}/vente/confirmer/${id}`, {});
   }
 
   annulerVente(id: string): Observable<Vente> {
-    return this.http.put<Vente>(`${this.apiUrl}/annuler/${id}`, {});
+    return this.http.put<Vente>(`${API_URL}/vente/annuler/${id}`, {});
   }
 
   creerVente(data: any): Observable<{ message: string; vente: Vente }> {
-    return this.http.post<{ message: string; vente: Vente }>(`${this.apiUrl}/faireVente`, data);
+    return this.http.post<{ message: string; vente: Vente }>(`${API_URL}/vente/faireVente`, data);
   }
 
   imprimerTicket(vente: Vente): void {
-    window.open(`http://localhost:5000/vente/ticket/${vente._id}`, '_blank');
+    window.open(`${API_URL}/vente/ticket/${vente._id}`, '_blank');
   }
 
 }

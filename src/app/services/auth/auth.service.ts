@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { API_URL } from '../../config/api.config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:5000';
 
   constructor(private http: HttpClient) { }
 
@@ -16,11 +16,11 @@ export class AuthService {
   }
 
   login(email: string, mdp: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/auth/connexion`, { email, mdp });
+    return this.http.post(`${API_URL}/auth/connexion`, { email, mdp });
   }
 
   register(userData: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/auth/inscription`, userData);
+    return this.http.post(`${API_URL}/auth/inscription`, userData);
   }
 
   setToken(token: string): void {

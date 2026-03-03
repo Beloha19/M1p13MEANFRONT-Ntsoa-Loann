@@ -3,12 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, switchMap } from 'rxjs';
 import { Boutique } from '../../models/boutique.model';
 import { AuthService } from '../auth/auth.service';
+import { API_URL } from '../../config/api.config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BoutiqueGestionService {
-  private apiUrl = 'http://localhost:5000';
 
   constructor(
     private http: HttpClient,
@@ -17,19 +17,19 @@ export class BoutiqueGestionService {
 
 
   getProfilBoutique(): Observable<Boutique> {
-    return this.http.get<Boutique>(`${this.apiUrl}/boutique/maBoutique`).pipe(
+    return this.http.get<Boutique>(`${API_URL}/boutique/maBoutique`).pipe(
       switchMap(boutique =>
-        this.http.get<Boutique>(`${this.apiUrl}/boutique/infoBoutique/${boutique._id}`)
+        this.http.get<Boutique>(`${API_URL}/boutique/infoBoutique/${boutique._id}`)
       )
     );
   }
 
   updateInfos(boutiqueId: string, data: Partial<Boutique>): Observable<Boutique> {
-    return this.http.put<Boutique>(`${this.apiUrl}/boutique/modifierInfoBoutique/${boutiqueId}`, data);
+    return this.http.put<Boutique>(`${API_URL}/boutique/modifierInfoBoutique/${boutiqueId}`, data);
   }
 
   updateHoraires(boutiqueId: string, horaires: any[]): Observable<Boutique> {
-    return this.http.put<Boutique>(`${this.apiUrl}/boutique/modifierHoraireBoutique/${boutiqueId}/horaires`, { horaires });
+    return this.http.put<Boutique>(`${API_URL}/boutique/modifierHoraireBoutique/${boutiqueId}/horaires`, { horaires });
   }
 
 }

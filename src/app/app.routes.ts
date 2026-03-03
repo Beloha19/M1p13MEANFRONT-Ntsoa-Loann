@@ -32,41 +32,41 @@ export const routes: Routes = [
       {path: 'mes-paiements', loadComponent: () => import('./pages/client-paiements/client-paiements.component').then(m => m.ClientPaiementsComponent)},
       { path: 'locales', component: LocauxComponent },
       { path: 'mon-contrat', component: MonContratComponent },
-      {
-        path: 'allreservation',
-        loadComponent: () => import('./pages/client-reservation/client-reservation.component').then(m => m.ClientReservationsComponent)
-      },
-      { path: 'ajout-nouveaux-locals', component: AddLocalComponent },
-      {
-        path: 'allvisiteNeedeDecision',
-        loadComponent: () => import('./pages/admin-decision-visite/admin-decision-visite.component').then(m => m.AdminVisitesComponent)
-      },
-      { path: 'admin', redirectTo: '/admin/login', pathMatch: 'full' },
-      {
-        path: 'admin/login',
-        loadComponent: () => import('./components/login-admin/login-admin.component').then(c => c.LoginAdminComponent)
-      },
-      {
-        path: 'admin/dashboard',
-        loadComponent: () => import('./pages/dashboard-stats/dashboard-stats.component').then(m => m.DashboardStatsComponent)
-      },
-      {
-        path: 'admin/demandes',
-        loadComponent: () => import('./pages/admin-demandes/admin-demandes.component').then(m => m.AdminDemandesComponent)
-      },
-      {
-        path: 'admin/locataires',
-        loadComponent: () => import('./pages/locataire/locataire.component').then(m => m.AdminLocatairesComponent)
-      },
-      {
-        path: 'admin/paiements',
-        loadComponent: () => import('./pages/admin-paiements/admin-paiements.component').then(m => m.AdminPaiementsComponent)
-      },
-      {
-        path: 'admin/commandes',
-        loadComponent: () => import('./pages/admin-commande/admin-commande.component').then(m => m.AdminCommandesComponent)
-      },
-    ]
+    ],
+  },
+  {
+    path: 'allreservation',
+    loadComponent: () => import('./pages/client-reservation/client-reservation.component').then(m => m.ClientReservationsComponent)
+  },
+  { path: 'ajout-nouveaux-locals', component: AddLocalComponent },
+  {
+    path: 'allvisiteNeedeDecision',
+    loadComponent: () => import('./pages/admin-decision-visite/admin-decision-visite.component').then(m => m.AdminVisitesComponent)
+  },
+  { path: 'admin', redirectTo: '/admin/login', pathMatch: 'full' },
+  {
+    path: 'admin/login',
+    loadComponent: () => import('./components/login-admin/login-admin.component').then(c => c.LoginAdminComponent)
+  },
+  {
+    path: 'admin/dashboard',
+    loadComponent: () => import('./pages/dashboard-stats/dashboard-stats.component').then(m => m.DashboardStatsComponent)
+  },
+  {
+    path: 'admin/demandes',
+    loadComponent: () => import('./pages/admin-demandes/admin-demandes.component').then(m => m.AdminDemandesComponent)
+  },
+  {
+    path: 'admin/locataires',
+    loadComponent: () => import('./pages/locataire/locataire.component').then(m => m.AdminLocatairesComponent)
+  },
+  {
+    path: 'admin/paiements',
+    loadComponent: () => import('./pages/admin-paiements/admin-paiements.component').then(m => m.AdminPaiementsComponent)
+  },
+  {
+    path: 'admin/commandes',
+    loadComponent: () => import('./pages/admin-commande/admin-commande.component').then(m => m.AdminCommandesComponent)
   },
 
 ];

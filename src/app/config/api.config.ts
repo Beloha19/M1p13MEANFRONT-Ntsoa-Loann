@@ -1,1 +1,1 @@
-export const API_URL = 'http://localhost:5000';
+export const API_URL = 'https://m1p13mean-ntsoa-loann-7w9q.onrender.com';
