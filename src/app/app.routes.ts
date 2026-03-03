@@ -18,7 +18,7 @@ export const routes: Routes = [
     path: 'home',
     component: HomeComponent,
     children: [
-      { path: '', redirectTo: 'accueil', pathMatch: 'full' },
+      { path: '', redirectTo: 'boutiques', pathMatch: 'full' },
       { path: 'accueil', component: AccueilComponent },
       { path: 'boutiques', loadComponent: () => import('./components/boutiques-list/boutiques-list.component').then(c => c.BoutiquesListComponent) },
       { path: 'boutique/detail/:id', loadComponent: () => import('./components/boutique-detail/boutique-detail.component').then(c => c.BoutiqueDetailComponent) },
